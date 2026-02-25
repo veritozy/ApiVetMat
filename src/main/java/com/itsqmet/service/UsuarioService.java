@@ -47,7 +47,7 @@ public class UsuarioService implements UserDetailsService {
         usuarioExistente.setNombre(usuario.getNombre());
         usuarioExistente.setEmail(usuario.getEmail());
         usuarioExistente.setRol(usuario.getRol());
-        if(usuario.getPassword() != null && !usuario.getPassword().trim().isEmpty()){
+        if(usuario.getPassword() != null && !usuario.getPassword().equals(usuario.getPassword())){
             usuarioExistente.setPassword(passwordEncoder.encode(usuario.getPassword()));
         }
         return usuarioRepository.save(usuarioExistente);

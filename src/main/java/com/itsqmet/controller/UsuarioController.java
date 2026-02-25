@@ -27,19 +27,19 @@ public class UsuarioController {
     }
 
     //ACTUALIZAR
-    @PutMapping("g")
+    @PutMapping("/{id}")
     public Usuario putUsuario(@PathVariable Long id, @RequestBody Usuario usuario){
         return usuarioService.actualizarUsuario(id, usuario);
     }
 
  //ELIMINAR
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deleteUsuario(@PathVariable Long id){
         usuarioService.eliminarUsuario(id);
     }
 
     //BUSCAR ID
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Usuario getUsuarioById(@PathVariable Long id){
         return usuarioService.buscarUsuarioById(id)
                 .orElseThrow(()-> new RuntimeException("Usuario no encontrado"));
